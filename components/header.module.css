@@ -1,0 +1,15 @@
+.container {
+    overflow: hidden;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  float: right;
+}
+
+.link {
+  display: block;
+  padding: 0.5rem 1rem;
+}
