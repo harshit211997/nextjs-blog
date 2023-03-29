@@ -2,9 +2,9 @@ import Link from 'next/link';
 import styles from './header.module.css'
 
 const path = [
-  { uid: 21, name: ' Home', id: 1, path: '/' },
-  { uid: 31, name: 'Blog', id: 2, path: 'Blog' },
-  { uid: 41, name: 'About', id: 3, path: 'About' }
+  { uid: 21, name: 'Home', id: 1, path: '/' },
+  { uid: 31, name: 'About', id: 2, path: 'about' },
+  { uid: 41, name: 'Contact', id: 3, path: 'contact' }
 ];
 export default function Header() {
   return (

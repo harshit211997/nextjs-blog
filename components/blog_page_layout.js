@@ -1,13 +1,12 @@
 import Head from 'next/head';
 import Header from './header'
-import styles from './layout.module.css';
-import utilStyles from '../styles/utils.module.css';
+import styles from './common_layout.module.css';
 import Link from 'next/link';
 
 const name = 'Harshit Kumar';
 export const siteTitle = 'Blog | Harshit Kumar';
 
-export default function Layout({ children, home }) {
+export default function Layout({ children }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -27,11 +26,9 @@ export default function Layout({ children, home }) {
       </Head>
       <Header />
       <main>{children}</main>
-      {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/">← Back to home</Link>
-        </div>
-      )}
+      <div className={styles.backToHome}>
+        <Link href="/">← Back to home</Link>
+      </div>
     </div>
   );
 }
