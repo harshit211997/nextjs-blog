@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Header from '../../components/header';
 import Date from '../../components/date';
 import Link from 'next/link';
-import styles from '../../styles/id.module.css';
+import styles from '../../styles/layout.module.css';
 import utilStyles from '../../styles/utils.module.css';
 
 export async function getStaticProps({ params }) {
