@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Header from './header'
-import commonStyles from './common_layout.module.css';
+import commonStyles from '../styles/layout.module.css';
 import styles from './home_page_layout.module.css'
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
