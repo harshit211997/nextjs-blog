@@ -8,12 +8,12 @@ const path = [
 ];
 export default function Header() {
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container}`}>
       <ul className={styles.list}>
         {path.map((value) => {
           return (
             <li key={value.uid}>
-              <Link className={styles.link} href={value.path}>{value.name}</Link>
+              <Link className={`nav-link px-3`} href={value.path}>{value.name}</Link>
             </li>
           );
         })}

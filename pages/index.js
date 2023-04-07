@@ -1,5 +1,7 @@
 import Head from 'next/head';
-import Layout, { siteTitle } from '../components/home_page_layout';
+import Header from '../components/header'
+import commonStyles from '../styles/layout.module.css';
+import styles from '../styles/home.module.css'
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 import Date from '../components/date';
@@ -15,26 +17,60 @@ export async function getStaticProps() {
   };
 }
 
+export const siteTitle = 'Blog | Harshit Kumar';
+
 export default function Home({ allPostsData }) {
   return (
-    <Layout home>
+    <div className={commonStyles.container}>
       <Head>
         <title>{siteTitle}</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="Learn how to build a personal website using Next.js"
+        />
+        <meta
+          property="og:image"
+          content={`https://og-image.vercel.app/${encodeURI(
+            siteTitle,
+          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="og:title" content={siteTitle} />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>{title}</Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
-            </li>
-          ))}
-        </ul>
+      <Header />
+      <div className={`${styles.hero} rounded mb-5`}>
+        <div className={`row align-items-center justify-content-between`}>
+          <div className='col-md-6'>
+            <h1>Hi. I am Harshit. An Engineer</h1>
+            <p>I am also the author of this blog and an ex game developer</p>
+            <a className='btn btn-dark text-white px-5 btn-lg' href="/about">About me</a>
+          </div>
+          <div className='col-md-6 text-right pl-0 pl-lg-4'>
+            <img src='/images/intro.svg' width='100%' height='auto'></img>
+          </div>
+          </div>
+      </div>
+      <section className='row'>
+        <section className={`${utilStyles.headingMd} ${utilStyles.padding1px} col-sm-8`}>
+          <h2 className={utilStyles.headingLg}>Blog</h2>
+          <ul className={utilStyles.list}>
+            {allPostsData.map(({ id, date, title }) => (
+              <li className={utilStyles.listItem} key={id}>
+                <Link href={`/posts/${id}`}>{title}</Link>
+                <br />
+                <small className={utilStyles.lightText}>
+                  <Date dateString={date} />
+                </small>
+              </li>
+            ))}
+          </ul>
+        </section>
+        <div className='col-sm-4'>
+          {/* Sidebar */}
+        </div>
       </section>
-    </Layout>
+    </div>
   );
 }

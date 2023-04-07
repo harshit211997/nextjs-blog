@@ -54,8 +54,3 @@
 .alignItemsCenter {
   align-items: center;
 }
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-}
