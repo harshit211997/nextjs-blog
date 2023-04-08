@@ -48,29 +48,32 @@ export default function Home({ allPostsData }) {
             <a className='btn btn-dark text-white px-5 btn-lg' href="/about">About me</a>
           </div>
           <div className='col-md-6 text-right pl-0 pl-lg-4'>
-            <img src='/images/intro.svg' width='100%' height='auto'></img>
+            <img src='/images/intro.svg' width='100%' height='auto' />
           </div>
           </div>
       </div>
       <section className='row'>
-        <section className={`${utilStyles.headingMd} ${utilStyles.padding1px} col-sm-8`}>
-          <h2 className={utilStyles.headingLg}>Blog</h2>
-          <ul className={utilStyles.list}>
-            {allPostsData.map(({ id, date, title }) => (
-              <li className={utilStyles.listItem} key={id}>
+        <div className='col-sm-8'>
+          <div className='row'>
+            {allPostsData.map(({ id, date, title, image }) => (
+              <div className='col-md-6 mb-5'>
+              <div className='card' key={id}>
+                <img src={image} />
                 <Link href={`/posts/${id}`}>{title}</Link>
                 <br />
                 <small className={utilStyles.lightText}>
                   <Date dateString={date} />
                 </small>
-              </li>
+              </div>
+              </div>
             ))}
-          </ul>
-        </section>
+          </div>
+        </div>
         <div className='col-sm-4'>
-          {/* Sidebar */}
+          
         </div>
       </section>
+      
     </div>
   );
 }
